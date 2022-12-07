@@ -5,8 +5,7 @@ def pushToNexus() {
 
 def sonarScan() {
     echo "Running sonarQube scan..."
-    sh 'mvn test'
-    sh 'mvn sonar:sonar -Dsonar.login=sqp_8703a5f6a7ab98a1e4f116a701c94c3885c795fe'
+    sh 'mvn clean verify sonar:sonar  -D maven.test.skip=true -Dsonar.projectKey=devops-project   -Dsonar.host.url=http://localhost:9000   -Dsonar.login=sqp_33ae35f230cde39c3a7c91be0867bc801545ba87'
 }
 
 return this
