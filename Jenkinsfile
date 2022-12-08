@@ -9,7 +9,7 @@ pipeline {
         stage("init") {
             environment {
                        CI = 'true'
-                      scannerHome = tool 'devops-project'
+                      scannerHome = tool 'devops'
             }
             steps {
                 script {
