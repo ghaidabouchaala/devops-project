@@ -16,6 +16,17 @@ public class User {
     @Column
     private String Occupation;
 
+    public User(String firstName, String lastName, int age, String occupation) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.Occupation = occupation;
+    }
+
+    public User() {
+
+    }
+
     public long getId() {
         return id;
     }

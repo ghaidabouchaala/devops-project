@@ -9,4 +9,9 @@ def sonarScan() {
     bat "mvn clean verify sonar:sonar -D sonar.projectKey=devops -D maven.test.skip=true  -D sonar.login=squ_9854aec5640594c23dd308012cde3301142f63fc"
     }
 
+def unitTest()
+{
+    echo "unit testing..."
+    bat 'mvn test'
+}
 return this
