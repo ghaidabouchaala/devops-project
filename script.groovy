@@ -5,10 +5,8 @@ def pushToNexus() {
 
 def sonarScan() {
     echo "Running sonarQube scan..."
-    withSonarQubeEnv('devops-project') {
-        // sh "${scannerHome}/bin/sonar-scanner"
-        sh "mvn clean verify sonar:sonar -Dsonar.projectKey=devops-project -Dmaven.test.skip=true"
+    sh "mvn clean verify sonar:sonar -Dsonar.projectKey=demo -Dmaven.test.skip=true  -Dsonar.login=squ_594c07451d6adeedecdb514f8a2f9e9e3ae2f403"
+    //devops
     }
-}
 
 return this
