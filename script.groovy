@@ -4,7 +4,7 @@
 }*/
 
 def sonarScan() {
-    echo "Running sonarQube scan..."
+    echo "Run sonarQube scan..."
     sh "mvn clean verify sonar:sonar -D sonar.projectKey=devops -D maven.test.skip=true  -D sonar.login=squ_9854aec5640594c23dd308012cde3301142f63fc"
     echo "went through the command..."
     //devops
