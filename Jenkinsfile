@@ -5,15 +5,15 @@ pipeline {
     tools {
         maven 'maven'
     }
+    environment {
+          CI = 'true'
+          scannerHome = tool 'devops'
+          registry='ghaidabouchaala/devops'
+          registryCredential='dockerhub'
+          dockerImage=''
+    }
     stages {
         stage("init") {
-             environment {
-                  CI = 'true'
-                  scannerHome = tool 'devops'
-                  registry='ghaidabouchaala/devops'
-                  registryCredential='dockerhub'
-                  dockerImage=''
-            }
             steps {
                 script {
                     gv = load "script.groovy"
