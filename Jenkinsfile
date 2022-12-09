@@ -10,6 +10,9 @@ pipeline {
              environment {
                   CI = 'true'
                   scannerHome = tool 'devops'
+                  registry='ghaidabouchaala/devops'
+                  registryCredential='dockerhub'
+                  dockerImage=''
             }
             steps {
                 script {
@@ -39,5 +42,22 @@ pipeline {
                 }
             }
        }
+
+        stage('Image building'){
+            steps{
+                script {
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                }
+            }
+        }
+        stage('Deploy Image') {
+            steps{
+                script {
+                    docker.withRegistry( '', registryCredential ) {
+                    dockerImage.push()
+                    }
+                }
+            }
+        }
     }
 }
